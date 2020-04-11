@@ -17,10 +17,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/checkout', (req, res) => {
-    res.json({
-        "name": "little",
-        "price": 8
-    });
+    // res.json({
+    //     "name": "little",
+    //     "price": 8
+    // });
+
+    db.Product.find({}, (err, allProducts) => {
+        if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+        res.json(allProducts);
+      });
 });
 
 // Post routes
@@ -39,6 +44,8 @@ app.post('/checkout', (req, res) => {
       res.json(newProduct);
     });
     };
+
+    create(req, res);
 });
 
 // Start Server
