@@ -20,9 +20,13 @@ const db = require('./models');
 // Init BodyParser
 app.use(bodyParser.json());
 
+
+
+// Serve Public Assets
+app.use(express.static(__dirname + '/public'));
+
 // ejs
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
 
 // Home
 // app.get('/', (req, res) => {
@@ -30,12 +34,17 @@ app.use(express.static('public'));
 // });
 
 app.get('/store', (req, res) => {
-    fs.readFile('items.json', function(error){
+  // res.render('stores');
+    fs.readFile('items.json', function(error, data){
       if (error){
         res.status(500).end();
       }
+
       else{
-        res.render('store.ejs');
+        res.render('stores.ejs', {
+          STRIPE_PUBLIC: STRIPE_PUBLIC,
+          items: JSON.parse(data)
+        });
       }
     })
 });
