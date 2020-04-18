@@ -32,22 +32,6 @@ function addTopping(event){
     while(order.toppings.length > 0){
         console.log('yes');
     };
-    // Check if topping was already added
-    
-    // let count = 0;
-   
-    
-    // console.log(Object.keys(toppings));
-    // while (order.toppings.length > 0){
-
-    //     for (let topping of order.toppings){
-    //         if (topping === event){
-    //             continue;
-    //         }
-
-    //     }
-
-    // };
 };
 
 // quantity
@@ -56,23 +40,24 @@ for (let quantity of quantities){
   quantity.addEventListener('change', quantityChanged)
 }
 
-// Add to cart
+// Add to cart | ADD button
 let addToCartButton = document.querySelectorAll('.add');
 for (let button of addToCartButton){
   console.log(button, 'test');
   button.addEventListener('click', addToCart);
 };
 
+// STRIPE CODE
 var stripeHandler = StripeCheckout.configure({
   key: STRIPE_PUBLIC,
   locale: 'auto',
   token: function(token) {
       var items = []
-      var cartItemContainer = document.getElementsByClassName('menu')[0]
-      var cartRows = cartItemContainer.getElementsByClassName('cartRows')
+      var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+      var cartRows = cartItemContainer.getElementsByClassName('cart-row');
       for (var i = 0; i < cartRows.length; i++) {
           var cartRow = cartRows[i]
-          var quantityElement = cartRow.getElementsByClassName('quantity')[0]
+          var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
           var quantity = quantityElement.value
           var id = cartRow.dataset.itemId
           items.push({
@@ -90,12 +75,23 @@ var stripeHandler = StripeCheckout.configure({
           body: JSON.stringify({
               stripeTokenId: token.id,
               items: items
-          })
+          }).then(function(res) {
+            return res.json()
+        }).then(function(data) {
+            alert(data.message)
+            var cartItems = document.getElementsByClassName('cart-items')[0]
+            while (cartItems.hasChildNodes()) {
+                cartItems.removeChild(cartItems.firstChild)
+            }
+            updateCartTotal()
+        }).catch(function(error) {
+            console.error(error)
+        })
       })
   }
 });
 
-
+// ADD to CART
 function addToCart(event){
   let button = event.target;
   let menu = button.parentElement.parentElement;

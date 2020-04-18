@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 4000;
 const STRIPE_SECRET = process.env.SECRET_KEY;
 const STRIPE_PUBLIC = process.env.PUBLIC_KEY;
 const fs = require('fs');
+const stripe = require('stripe')(STRIPE_SECRET);
 
 
 console.log(STRIPE_PUBLIC);
@@ -27,6 +28,9 @@ app.use(express.static(__dirname + '/public'));
 
 // ejs
 app.set('view engine', 'ejs');
+
+// Using json
+app.use(express.json());
 
 // Home
 // app.get('/', (req, res) => {
@@ -58,6 +62,28 @@ app.post('/purchase', (req, res) => {
 
       else{
         console.log('purchase');
+        const itemsJson = JSON.parse(data);
+        // const itemsArray = itemsJson.menu;
+        let total = 0;
+        req.body.items.forEach( function (item){
+          let itemJson = itemsJson.find(function(i){
+              return i.id === item.id;
+          });
+
+          total = total + itemJson.price * item.quantity;
+        });
+
+        stripe.charges.create({
+          amount: total,
+          source: req.body.stripeTokenId,
+          currency: 'usd'
+        }).then(function() {
+          console.log('Charge Successful')
+          res.json({ message: 'Successfully purchased items' })
+        }).catch(function() {
+          console.log('Charge Fail')
+          res.status(500).end()
+        })
       }
     })
 });
