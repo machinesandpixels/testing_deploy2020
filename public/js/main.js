@@ -68,11 +68,11 @@ var stripeHandler = StripeCheckout.configure({
   locale: 'auto',
   token: function(token) {
       var items = []
-      var cartItemContainer = document.getElementsByClassName('cart-items')[0]
-      var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+      var cartItemContainer = document.getElementsByClassName('menu')[0]
+      var cartRows = cartItemContainer.getElementsByClassName('cartRows')
       for (var i = 0; i < cartRows.length; i++) {
           var cartRow = cartRows[i]
-          var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+          var quantityElement = cartRow.getElementsByClassName('quantity')[0]
           var quantity = quantityElement.value
           var id = cartRow.dataset.itemId
           items.push({
@@ -91,17 +91,6 @@ var stripeHandler = StripeCheckout.configure({
               stripeTokenId: token.id,
               items: items
           })
-      }).then(function(res) {
-          return res.json()
-      }).then(function(data) {
-          alert(data.message)
-          var cartItems = document.getElementsByClassName('cart-items')[0]
-          while (cartItems.hasChildNodes()) {
-              cartItems.removeChild(cartItems.firstChild)
-          }
-          updateCartTotal()
-      }).catch(function(error) {
-          console.error(error)
       })
   }
 });
@@ -112,6 +101,7 @@ function addToCart(event){
   let menu = button.parentElement.parentElement;
   let price = menu.querySelector('.price');
   let title = menu.querySelector('.title');
+  let id = menu.dataset.itemId;
   // let qty = 0;
   // quantity.addEventListener('change', (val) => {
   //   console.log(val);
@@ -122,14 +112,15 @@ function addToCart(event){
   console.log('clicked');
   console.log(price);
   console.log(title);
-  appendNewRow(t, p);
+  appendNewRow(t, p, id);
   updateTotal();
 };
 
-function appendNewRow(title, price, qty){
+function appendNewRow(title, price, qty, id){
   let cart = document.querySelector('.cart');
   // let cartRows = document.querySelector('.cartRows');
   // let newRow = document.createElement('tr');
+  cart.dataset.itemId = id;
   let titles = document.querySelectorAll('.cartTitle');
   
   for (let value of titles){

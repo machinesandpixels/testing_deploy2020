@@ -49,6 +49,18 @@ app.get('/store', (req, res) => {
     })
 });
 
+app.post('/purchase', (req, res) => {
+  // res.render('stores');
+    fs.readFile('items.json', function(error, data){
+      if (error){
+        res.status(500).end();
+      }
+
+      else{
+        console.log('purchase');
+      }
+    })
+});
 
 // app.get('/checkout', (req, res) => {
 //     // res.json({
