@@ -7,6 +7,7 @@
 /* CSS Variables*/
 :root {
     --text-color: red;
+    --theme-font: 'NexaBold';
 }
 
 html, body {
@@ -28,18 +29,12 @@ body{
     /* background-image: center, no-repeat, cover; */
    
     color: var(--text-color);
-    font-family:'NexaBold';
-}
-
-.main-header {
-    background-color: rgba(0, 0, 0, .6);
-    background-size: cover;
-     /* background-blend-mode: multiply; */
-    padding-bottom: 30px;
+    /* font-family:'NexaBold'; */
 }
 
 .navBar{
     color: white;
+    font-family: var( --theme-font);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -59,25 +54,27 @@ a:hover, a:visited, a:link, a:active
 }
 
 .landingContainer{
-    /* background: rgba(226, 225, 225, 0.5); */
-    /* height: 35vh;
-    width: 45vw; */
+    background: rgba(248, 248, 248, 0.3);
+    border-radius: 6px; 
+    height: 35vh;
+    width: 50vw;
     margin: 0 auto;
-    margin-top: 15%;
-}
-
-.landingContainer > p {
-    text-align: center;
-}
-
-/* .landingText{
     display: flex;
-    justify-content: center;
-    font-size: 3rem;
-} */
-.landingText > h1 {
-    font-size: 7rem;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 7%;
+    padding-top: 4rem;
 }
+
+.landingContainer > h1 {
+    font-family: var(--theme-font);
+    font-size: 8rem;
+}
+
+.landingContainer > h3{
+    font-weight: bolder;
+}
+
 section{
    height: 100vh;
 }
