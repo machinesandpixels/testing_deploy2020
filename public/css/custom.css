@@ -11,16 +11,17 @@ html, body {
 }
 
 body{
-    /* background-image: url('../images/top-view-photo-of-food-3023476.jpg'); */
+    background-image: url('../images/landing.jpg');
     background-position: center;
-    background-repeat: no-repeat; 
     background-size: cover; 
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw; 
+    /* background-size: cover;  */
     /* background-blend-mode: multiply; */
     /* margin-top: 20rem; */
     /* background-image: center, no-repeat, cover; */
-    /* height: 100vh;
-    width: 100vw;
-    */
+   
     color: red;
     font-family:'NexaBold';
 }
@@ -33,11 +34,12 @@ body{
 }
 
 .navBar{
+    color: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    color: white;
-    font-size: 3rem;
+    margin-top: .8rem;
+    font-size: 1.8rem;
 }
 
 ul li{
@@ -51,12 +53,34 @@ a:hover, a:visited, a:link, a:active
     color: inherit; 
 }
 
+.landingContainer{
+   
+    background: rgba(226, 225, 225, 0.5);
+    
+    height: 35vh;
+    width: 45vw;
+    margin: 0 auto;
+    margin-top: 15%;
+}
+
+.landingContainer > p {
+    text-align: center;
+}
+
+/* .landingText{
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+} */
+.landingText > h1 {
+    font-size: 7rem;
+}
 section{
    height: 100vh;
 }
 
-.nav a:hover {
-    background-color: rgba(255, 255, 255, .3)
+a:hover {
+    color: red;
 }
 
 .content-section {
