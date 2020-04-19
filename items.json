@@ -1,14 +1,15 @@
 {
     "menu": [
-        {
-            "id": 1,
-            "name": "Round Hound",
-            "price": 200
-        },
-        {
-            "id": 2,
-            "name": "little Hound",
-            "price": 15
-        }
+      {
+        "id": 1,
+        "name": "Little Hound",
+        "price": 800,
+        "imgName": "littleHound.jpg"
+      },{
+        "id": 2,
+        "name": "Big Hound",
+        "price": 1200,
+        "imgName": "roundHound.jpg"
+      }
     ]
-}
+  }
