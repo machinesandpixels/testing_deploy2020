@@ -7,10 +7,10 @@ const mongoose = require('mongoose');
 const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 4000;
-const stripeSecretKey = process.env.STRIPE_SECRET_KEY
-const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
-const fs = require('fs');
-const stripe = require('stripe')(stripeSecretKey);
+// const stripeSecretKey = process.env.STRIPE_SECRET_KEY
+// const stripePublicKey = process.env.STRIPE_PUBLIC_KEY
+// const fs = require('fs');
+// const stripe = require('stripe')(stripeSecretKey);
 
 // Db
 const db = require('./models');
@@ -18,7 +18,8 @@ const db = require('./models');
 // Init BodyParser
 app.use(bodyParser.json());
 
-
+// Init Routes
+const routes = require('./routes');
 
 // Serve Public Assets
 app.use(express.static(__dirname + '/public'));
@@ -29,53 +30,57 @@ app.set('view engine', 'ejs');
 // Using json
 app.use(express.json());
 
+// ------------------- VIEW ROUTES
+
+app.use('/', routes.views);
+
 // Home
 // app.get('/', (req, res) => {
 //     res.send('Home Page');
 // });
 
-app.get('/order', function(req, res) {
-  fs.readFile('items.json', function(error, data) {
-    if (error) {
-      res.status(500).end()
-    } else {
-      res.render('order', {
-        stripePublicKey: stripePublicKey,
-        items: JSON.parse(data)
-      })
-    }
-  })
-})
+// app.get('/order', function(req, res) {
+//   fs.readFile('items.json', function(error, data) {
+//     if (error) {
+//       res.status(500).end()
+//     } else {
+//       res.render('order', {
+//         stripePublicKey: stripePublicKey,
+//         items: JSON.parse(data)
+//       })
+//     }
+//   })
+// })
 
-app.post('/purchase', function(req, res) {
-  fs.readFile('items.json', function(error, data) {
-    if (error) {
-      res.status(500).end()
-    } else {
-      const itemsJson = JSON.parse(data)
-      const itemsArray = itemsJson.menu;
-      let total = 0
-      req.body.items.forEach(function(item) {
-        const itemJson = itemsArray.find(function(i) {
-          return i.id == item.id
-        })
-        total = total + itemJson.price * item.quantity
-      })
+// app.post('/purchase', function(req, res) {
+//   fs.readFile('items.json', function(error, data) {
+//     if (error) {
+//       res.status(500).end()
+//     } else {
+//       const itemsJson = JSON.parse(data)
+//       const itemsArray = itemsJson.menu;
+//       let total = 0
+//       req.body.items.forEach(function(item) {
+//         const itemJson = itemsArray.find(function(i) {
+//           return i.id == item.id
+//         })
+//         total = total + itemJson.price * item.quantity
+//       })
 
-      stripe.charges.create({
-        amount: total,
-        source: req.body.stripeTokenId,
-        currency: 'usd'
-      }).then(function() {
-        console.log('Charge Successful')
-        res.json({ message: 'Successfully purchased items' })
-      }).catch(function() {
-        console.log('Charge Fail')
-        res.status(500).end()
-      })
-    }
-  })
-})
+//       stripe.charges.create({
+//         amount: total,
+//         source: req.body.stripeTokenId,
+//         currency: 'usd'
+//       }).then(function() {
+//         console.log('Charge Successful')
+//         res.json({ message: 'Successfully purchased items' })
+//       }).catch(function() {
+//         console.log('Charge Fail')
+//         res.status(500).end()
+//       })
+//     }
+//   })
+// })
 
 // app.get('/checkout', (req, res) => {
 //     // res.json({
@@ -108,6 +113,11 @@ app.post('/purchase', function(req, res) {
 
 //     create(req, res);
 // });
+
+// HTML Error 404
+app.use('*', (req, res) => {
+  res.send('<h2>Error 404: Page Not Found</h2>');
+});
 
 // Start Server
 app.listen(PORT, () => {
