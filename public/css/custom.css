@@ -4,6 +4,11 @@
     src: url('../fonts/NexaBold.otf') format('opentype'); 
 }
 
+/* CSS Variables*/
+:root {
+    --text-color: red;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -22,7 +27,7 @@ body{
     /* margin-top: 20rem; */
     /* background-image: center, no-repeat, cover; */
    
-    color: red;
+    color: var(--text-color);
     font-family:'NexaBold';
 }
 
@@ -38,8 +43,8 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: .8rem;
-    font-size: 1.8rem;
+    margin-top: 2rem;
+    font-size: 2rem;
 }
 
 ul li{
@@ -54,11 +59,9 @@ a:hover, a:visited, a:link, a:active
 }
 
 .landingContainer{
-   
-    background: rgba(226, 225, 225, 0.5);
-    
-    height: 35vh;
-    width: 45vw;
+    /* background: rgba(226, 225, 225, 0.5); */
+    /* height: 35vh;
+    width: 45vw; */
     margin: 0 auto;
     margin-top: 15%;
 }
@@ -80,7 +83,7 @@ section{
 }
 
 a:hover {
-    color: red;
+    color: var(--text-color);
 }
 
 .content-section {
@@ -162,7 +165,7 @@ a:hover {
 .btn-primary {
     color: white;
     /* background-color: #56CCF2; */
-    background-color: red;
+    background-color: var(--text-color);
     border: none;
     border-radius: .3em;
     /* font-weight: bold; */
@@ -254,7 +257,7 @@ a:hover {
 
 .btn-danger {
     color: white;
-    background-color: red;
+    background-color: var(--text-color);
     border: none;
     border-radius: .3em;
 }

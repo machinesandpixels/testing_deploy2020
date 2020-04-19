@@ -45,7 +45,7 @@ a:hover, a:visited, a:link, a:active
 }
 
 a:hover {
-    color:var(--text-color);
+    color: var(--text-color);
 }
 
 section{
