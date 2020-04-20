@@ -1,7 +1,11 @@
 const express = require('express');
+const request = require('request');
+const https = require('https');
 const router = express.Router();
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
+const mailchimpApiKey = process.env.MAILCHIMP_API_KEY;
+const mailchimpListId = process.env.MAILCHIMP_LIST_ID;
 const fs = require('fs');
 const stripe = require('stripe')(stripeSecretKey);
 
@@ -29,6 +33,54 @@ router.get('/about', (req, res) => {
       root: __dirname + '/../'
   });
 })
+
+router.post('/', (req, res) => {
+  let firstName = req.body.fName;
+  let lastName = req.body.lName;
+  let email = req.body.email;
+  console.log(firstName);
+  console.log(lastName);
+  console.log(email);
+
+  let data = {
+    members: [{
+      email_address: email,
+      status: "subscribed",
+      merge_fields:{
+        FNAME: firstName,
+        LNAME: lastName
+      }
+    }]
+  }
+
+  let signup = JSON.stringify(data);
+  
+  const url=`https://us4.api.mailchimp.com/3.0/lists/${mailchimpListId}`;
+  
+  const options = {
+    method: "POST",
+    auth: `roundhound2020:${mailchimpApiKey}`
+  }
+
+  const request = https.request(url, options, function(response) {
+    if (response.statusCode === 200){
+      res.sendFile('views/success.html', {
+        root: __dirname + '/../'
+    });
+    }
+    else{
+      res.send('failed');
+    }
+    // res.on("data", function(data){
+    //   console.log(JSON.parse(data));
+    // });
+  });
+
+  request.write(signup);
+  request.end();
+
+});
+
 
 router.post('/purchase', function(req, res) {
   fs.readFile('items.json', function(error, data) {

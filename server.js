@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 4000;
 const db = require('./models');
 
 // Init BodyParser
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 // Init Routes
 const routes = require('./routes');
