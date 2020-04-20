@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="./css/normalize.css">
+
+    <!-- Popop CSS -->
+    <link rel="stylesheet" href="./css/popop.css">
+
+    <!-- Skeleton CSS -->
+    <link rel="stylesheet" href="./css/skeleton.css">
+
+    <!-- Home CSS -->
+    <link rel="stylesheet" href="./css/home.css">
+
+    <!-- Popop JS -->
+    <script defer src="./js/popop.js"></script>
+
+    <!-- Main JS -->
+    <script defer src="./js/main.js"></script>
+
+    <title>Round Hounds | Burgers & Fries </title>
+</head>
+<body>
+   
+    <header>
+        <nav>
+          <ul class="navBar">
+            <li>
+              <a href="/">
+                Home
+              </a> 
+              </li>
+            <li>
+              <a href="/order">
+                Menu
+              </a> 
+            </li>
+            <li>
+              <a href="/order">
+                Order Online
+              </a> 
+            </li>
+            <li>
+              <a href="/about">
+                Our Story
+              </a> 
+            </li>
+          </ul>
+        </nav>
+    </header>
+    <main>
+    <div class="landingContainer">
+        <h1> Round Hounds</h1>
+        <h3>Burgers & Fries</h3>
+    </div>
+    <div class="signupText">
+      <h5>Get Exclusive Round Hounds Deals</h5>
+    </div>
+    <div class="signupContainer">
+      <button 
+      id="signup" 
+      class="popop-open-btn" 
+      data-modal-id="modal-1">
+        Sign Up
+      </button>
+    </div>
+    <div class="popop-modal" id="modal-1"> 
+      <form action="/" method="POST">
+        <div class="row">
+          <div class="closeBtn">
+            <button id="signup" class="popop-close-btn"> X </button>
+          </div>
+          <div class="formContainer">
+            <h1>Join Now</h1>
+            <p>Get discounts and updates</p>
+          <div class="four columns">
+           
+            <label for="fName"></label>
+            <input name="fName" class="u-full-width" type="text" placeholder="First Name" id="fName">
+
+            <label for="lName"></label>
+            <input name="lName" class="u-full-width" type="text" placeholder="Last Name" id="lName">
+
+            <label for="exampleEmailInput"></label>
+            <input name="email" class="u-full-width" type="email" placeholder="Your email address" id="exampleEmailInput">
+            <div class="submitBtn">
+              <input id="signup" class="button" type="submit" value="Subscribe">
+            </div>
+          </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    </main>
+
+</body>
+</html>

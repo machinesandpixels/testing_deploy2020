@@ -1,0 +1,137 @@
+@font-face{
+    /* font-family:'NexaBold' !important; */
+    font-family:'NexaBold';
+    src: url('../fonts/NexaBold.otf') format('opentype'); 
+}
+
+/* CSS Variables*/
+:root {
+    --text-color: red;
+    --theme-font: 'NexaBold';
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body{
+    background-image: url('../images/order.jpg');
+    background-position: center;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw; 
+    color: var(--text-color);
+}
+
+.navBar{
+    color: white;
+    font-family: var( --theme-font);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+ul li{
+    list-style-type:none;
+    margin: 0 1rem;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+    color: inherit; 
+}
+
+a:hover {
+    color: var(--text-color);
+}
+
+.landingContainer{
+    background: rgba(248, 248, 248, 0.3);
+    border-radius: 6px; 
+    height: 35vh;
+    width: 50vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 7%;
+    padding-top: 4rem;
+}
+
+.landingContainer > h1 {
+    font-family: var(--theme-font);
+    font-size: 8rem;
+}
+
+.landingContainer > h3{
+    font-weight: bolder;
+}
+
+#signup{
+    background-color: var(--text-color);
+    color: white;
+}
+.signupText{
+    color: white;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    padding-top: 15rem;
+    text-transform: uppercase;
+}
+.signupContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.closeBtn{
+    display: flex;
+    justify-content: end;
+}
+.submitBtn{
+    display: flex;
+    justify-content: center;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1268px) {
+    .landingContainer > h1 {
+        font-size: 6.5rem;
+    }
+    .landingContainer > h3{
+        font-size: 3.5rem;
+    }
+    .signupText > h5{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 968px) {
+    .landingContainer{
+        height: 25vh;
+        margin-top: 20%;
+    }
+    .landingContainer > h1 {
+        font-size: 4.5rem;
+    }
+    .landingContainer > h3{
+        font-size: 2.5rem;
+    }
+    .signupText > h5{
+        font-size: 1.8rem;
+    }
+    
+}

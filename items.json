@@ -1,0 +1,15 @@
+{
+    "menu": [
+      {
+        "id": 1,
+        "name": "Little Hound",
+        "price": 800,
+        "imgName": "littleHound.jpg"
+      },{
+        "id": 2,
+        "name": "Round Hound",
+        "price": 1200,
+        "imgName": "roundHound.jpg"
+      }
+    ]
+  }

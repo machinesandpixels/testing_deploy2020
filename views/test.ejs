@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="./css/normalize.css">
+
+    <!-- Popop CSS -->
+    <link rel="stylesheet" href="./css/popop.css">
+
+    <!-- Skeleton CSS -->
+    <link rel="stylesheet" href="./css/skeleton.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/custom.css">
+
+    <!-- Popop JS -->
+    <script defer src="./js/popop.js"></script>
+
+    <script defer src="https://checkout.stripe.com/checkout.js"></script>
+    <script>
+        const STRIPE_PUBLIC = '<%= STRIPE_PUBLIC %>'
+    </script>
+
+    <!-- Main JS -->
+    <!-- <script defer src="./js/main.js"></script> -->
+    <script defer src="./js/custom.js"></script>
+
+    <title>Round Hounds: Burgers & Fries </title>
+</head>
+<body>
+
+    <header>
+        <nav>
+          <ul class="navBar">
+            <li>Home</li>
+            <li>Menu</li>
+            <li>Order Online</li>
+            <li>Our Story</li>
+          </ul>
+        </nav>
+    </header>
+    <main>
+    <h1>Stores Page</h1>
+    <h1>Start Practicing Now</h1>
+    <a class="button" href="#">Anchor button</a>
+    <button>checkout</button>
+
+    <button class="popop-open-btn" data-modal-id="modal-1">Open!</button>
+    <div class="popop-modal" id="modal-1"> 
+      <form class="container">
+        <!-- Lettuce -->
+        <div class="row">
+          <div class="one column">
+            <input type="checkbox" id="lettuce" name="lettuce"value="Lettuce">
+          </div>
+          <div class="one column">
+            <label for="lettuce">Lettuce</label>
+          </div>
+        </div>
+
+         <!-- Tomatoes -->
+          <div class="row">
+            <div class="one column">
+              <input type="checkbox" id="tomatoes" name="tomatoes"value="Tomatoes">
+            </div>
+            <div class="one column">
+              <label for="tomatoes">Tomatoes</label>
+            </div>
+          </div>
+
+           <!-- Onions -->
+          <div class="row">
+            <div class="one column">
+              <input type="checkbox" id="onions" name="onions"value="Onions">
+            </div>
+            <div class="one column">
+              <label for="onions"> Onions</label>
+            </div>
+          </div>
+      </form>
+      
+      <button class="popop-close-btn"> X </button>
+      <button class="popop-close-btn"> Add to Cart </button>
+    </div>
+    </main>
+
+    
+    <section>
+      <h1>Checkout Cart</h1>
+
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>Item to add</th>
+            <th>Price to add</th>
+            <th>Quantity to add</th>
+          </tr>
+        </thead>
+        <tbody class="menu">
+          
+            <% items.menu.forEach( (item) => { %>
+              <tr class="cartRows" data-item-id="<%= item.id %>">
+              <td class="title"><%= item.name %> </td>
+              <td class="price"><%= item.price %></td>
+              <td> 
+                <input class="quantity" type="number" name="" id="" value="" >
+                <button class="add"> add </button>
+              </td>
+              </tr>
+            <% }) %>
+        </tbody>
+      </table>
+      
+      <!-- CART -->
+      <section class="container content-section">
+        <h2 class="section-header">CART</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">ITEM</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+        </div>
+        <div class="cart-items">
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">$0</span>
+        </div>
+        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+    </section>
+
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody class="cart-row">
+          <tr class="cartRows">
+           <td class="cart-items"></td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Total <span class="total">$0</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="buy">buy</button>
+      
+    </section>
+
+</body>
+</html>
