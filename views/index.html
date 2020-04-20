@@ -55,36 +55,44 @@
     <div class="landingContainer">
         <h1> Round Hounds</h1>
         <h3>Burgers & Fries</h3>
-        
     </div>
-    <!-- <div class="signupContainer">
-      <h2>
-          <button>
-            Sign Up
-          </button>
-        </h2>
-    </div> -->
-    <button class="popop-open-btn" data-modal-id="modal-1">Open!</button>
+    <div class="signupText">
+      <h5>Get Exclusive Round Hounds Deals</h5>
+    </div>
+    <div class="signupContainer">
+      <button 
+      id="signup" 
+      class="popop-open-btn" 
+      data-modal-id="modal-1">
+        Sign Up
+      </button>
+    </div>
     <div class="popop-modal" id="modal-1"> 
       <form action="/" method="POST">
         <div class="row">
-          <div class="six columns">
-            <label for="exampleEmailInput">Your email</label>
-            <input name="email" class="u-full-width" type="email" placeholder="test@mailbox.com" id="exampleEmailInput">
+          <div class="closeBtn">
+            <button id="signup" class="popop-close-btn"> X </button>
+          </div>
+          <div class="formContainer">
+            <h1>Join Now</h1>
+            <p>Get discounts and updates</p>
+          <div class="four columns">
+           
+            <label for="fName"></label>
+            <input name="fName" class="u-full-width" type="text" placeholder="First Name" id="fName">
 
-            <label for="fName">First name</label>
-            <input name="fName" class="u-full-width" type="text" placeholder="first name" id="fName">
-
-            <label for="lName">Last Name</label>
+            <label for="lName"></label>
             <input name="lName" class="u-full-width" type="text" placeholder="Last Name" id="lName">
+
+            <label for="exampleEmailInput"></label>
+            <input name="email" class="u-full-width" type="email" placeholder="Your email address" id="exampleEmailInput">
+            <div class="submitBtn">
+              <input id="signup" class="button" type="submit" value="Subscribe">
+            </div>
+          </div>
           </div>
         </div>
-        
-        <input class="button-primary" type="submit" value="Submit">
       </form>
-      
-      <button class="popop-close-btn"> X </button>
-      <button class="popop-close-btn"> Add to Cart </button>
     </div>
     </main>
 
