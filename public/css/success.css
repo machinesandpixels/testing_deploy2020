@@ -1,0 +1,38 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body{
+    background-image: url('../images/menupage.jpg');
+    background-position: center;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bolder;
+    height: 100vh;
+    width: 100vw; 
+}
+
+.success{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding-top: 10rem;
+    align-items: center;
+    /* background: rgba(248, 248, 248, 0.3);
+    border-radius: 6px; */
+    margin: 0 auto;
+    height: 300px;
+    width: 65vw;
+}
+
+.success > h1 {
+    font-size: 4rem;
+}
+.success > p{
+    font-size: 1.5rem;
+}
