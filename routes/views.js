@@ -67,7 +67,7 @@ router.post('/', (req, res) => {
   }
 
   const request = https.request(url, options, function(response) {
-    if (response.statusCode === 200){
+    if (response.statusCode === 200 && firstName.length > 0){
       res.sendFile('views/success.html', {
         root: __dirname + '/../'
     });

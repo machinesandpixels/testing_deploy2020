@@ -25,8 +25,7 @@ app.set('view engine', 'ejs');
 // Using json
 app.use(express.json());
 
-// ------------------- VIEW ROUTES
-
+// VIEW ROUTES
 app.use('/', routes.views);
 
 // HTML Error 404
