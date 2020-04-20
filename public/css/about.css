@@ -1,5 +1,4 @@
 @font-face{
-    /* font-family:'NexaBold' !important; */
     font-family:'NexaBold';
     src: url('../fonts/NexaBold.otf') format('opentype'); 
 }
@@ -7,7 +6,6 @@
 /* CSS Variables*/
 :root {
     --text-color: red;
-    --theme-font: 'NexaBold';
 }
 
 html, body {
@@ -17,29 +15,16 @@ html, body {
 }
 
 body{
-    background-image: url('../images/order.jpg');
-    background-position: center;
-    background-size: cover; 
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100vw; 
-    /* background-size: cover;  */
-    /* background-blend-mode: multiply; */
-    /* margin-top: 20rem; */
-    /* background-image: center, no-repeat, cover; */
-   
-    color: var(--text-color);
-    /* font-family:'NexaBold'; */
+    font-family:'NexaBold';
 }
 
 .navBar{
-    color: white;
-    font-family: var( --theme-font);
+    color: var(--text-color);
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-top: 2rem;
-    font-size: 2rem;
+    font-size: 1.2rem;
 }
 
 ul li{
@@ -53,34 +38,21 @@ a:hover, a:visited, a:link, a:active
     color: inherit; 
 }
 
-.landingContainer{
-    background: rgba(248, 248, 248, 0.3);
-    border-radius: 6px; 
-    height: 35vh;
-    width: 50vw;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 7%;
-    padding-top: 4rem;
-}
-
-.landingContainer > h1 {
-    font-family: var(--theme-font);
-    font-size: 8rem;
-}
-
-.landingContainer > h3{
-    font-weight: bolder;
-}
-
-section{
-   height: 100vh;
-}
-
 a:hover {
     color: var(--text-color);
+}
+
+/* section{
+   height: 100vh;
+} */
+.sectionContainer{
+    background-image: url('../images/menu.jpg');
+    /* background-position: center; */
+    background-size: cover; 
+    background-repeat: no-repeat;
+    height: 180px;
+    width: 660px; 
+    margin: 0 auto;
 }
 
 .content-section {
@@ -94,9 +66,9 @@ a:hover {
 }
 .section-header {
     /* font-family: "Raleway"; */
-    /* color: #333; */
+    color: var(--text-color);
     text-align: center;
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 .main-footer {
@@ -162,7 +134,7 @@ a:hover {
 .btn-primary {
     color: white;
     /* background-color: #56CCF2; */
-    background-color: var(--text-color);
+    background-color: red;
     border: none;
     border-radius: .3em;
     /* font-weight: bold; */
@@ -180,9 +152,8 @@ a:hover {
     display: block;
     width: 100%;
     text-align: center;
-    /* font-weight: bold; */
     font-size: 1.5em;
-    /* color: #333; */
+    color: var(--text-color);
     margin-bottom: 15px;
 }
 
@@ -198,7 +169,7 @@ a:hover {
 
 .shop-item-price {
     flex-grow: 1;
-    /* color: #333; */
+    color: var(--text-color);
 }
 
 .shop-items {
@@ -208,9 +179,8 @@ a:hover {
 }
 
 .cart-header {
-    /* font-weight: bold; */
+    color: var(--text-color);
     font-size: 1.25em;
-    /* color: #333; */
 }
 
 .cart-column {
@@ -233,7 +203,7 @@ a:hover {
 .cart-price {
     width: 20%;
     font-size: 1.2em;
-    /* color: #333; */
+    color: var(--text-color);
 }
 
 .cart-quantity {
@@ -241,7 +211,7 @@ a:hover {
 }
 
 .cart-item-title {
-    /* color: #333; */
+    color: var(--text-color);
     margin-left: .5em;
     font-size: 1.2em;
 }
@@ -254,7 +224,7 @@ a:hover {
 
 .btn-danger {
     color: white;
-    background-color: var(--text-color);
+    background-color: red;
     border: none;
     border-radius: .3em;
 }

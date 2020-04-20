@@ -1,4 +1,5 @@
 @font-face{
+    /* font-family:'NexaBold' !important; */
     font-family:'NexaBold';
     src: url('../fonts/NexaBold.otf') format('opentype'); 
 }
@@ -6,6 +7,7 @@
 /* CSS Variables*/
 :root {
     --text-color: red;
+    --theme-font: 'NexaBold';
 }
 
 html, body {
@@ -15,16 +17,29 @@ html, body {
 }
 
 body{
-    font-family:'NexaBold';
+    background-image: url('../images/order.jpg');
+    background-position: center;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw; 
+    /* background-size: cover;  */
+    /* background-blend-mode: multiply; */
+    /* margin-top: 20rem; */
+    /* background-image: center, no-repeat, cover; */
+   
+    color: var(--text-color);
+    /* font-family:'NexaBold'; */
 }
 
 .navBar{
-    color: var(--text-color);
+    color: white;
+    font-family: var( --theme-font);
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-top: 2rem;
-    font-size: 1.2rem;
+    font-size: 2rem;
 }
 
 ul li{
@@ -38,18 +53,34 @@ a:hover, a:visited, a:link, a:active
     color: inherit; 
 }
 
-a:hover {
-    color: var(--text-color);
+.landingContainer{
+    background: rgba(248, 248, 248, 0.3);
+    border-radius: 6px; 
+    height: 35vh;
+    width: 50vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 7%;
+    padding-top: 4rem;
 }
 
-.sectionContainer{
-    background-image: url('../images/menu.jpg');
-    /* background-position: center; */
-    background-size: cover; 
-    background-repeat: no-repeat;
-    height: 180px;
-    width: 660px; 
-    margin: 0 auto;
+.landingContainer > h1 {
+    font-family: var(--theme-font);
+    font-size: 8rem;
+}
+
+.landingContainer > h3{
+    font-weight: bolder;
+}
+
+section{
+   height: 100vh;
+}
+
+a:hover {
+    color: var(--text-color);
 }
 
 .content-section {
@@ -63,9 +94,9 @@ a:hover {
 }
 .section-header {
     /* font-family: "Raleway"; */
-    color: var(--text-color);
+    /* color: #333; */
     text-align: center;
-    /* font-size: 2em; */
+    font-size: 2.5em;
 }
 
 .main-footer {
@@ -131,9 +162,10 @@ a:hover {
 .btn-primary {
     color: white;
     /* background-color: #56CCF2; */
-    background-color: red;
+    background-color: var(--text-color);
     border: none;
     border-radius: .3em;
+    /* font-weight: bold; */
 }
 
 .btn-primary:hover {
@@ -148,8 +180,9 @@ a:hover {
     display: block;
     width: 100%;
     text-align: center;
+    /* font-weight: bold; */
     font-size: 1.5em;
-    color: var(--text-color);
+    /* color: #333; */
     margin-bottom: 15px;
 }
 
@@ -165,7 +198,7 @@ a:hover {
 
 .shop-item-price {
     flex-grow: 1;
-    color: var(--text-color);
+    /* color: #333; */
 }
 
 .shop-items {
@@ -175,8 +208,9 @@ a:hover {
 }
 
 .cart-header {
-    color: var(--text-color);
+    /* font-weight: bold; */
     font-size: 1.25em;
+    /* color: #333; */
 }
 
 .cart-column {
@@ -199,7 +233,7 @@ a:hover {
 .cart-price {
     width: 20%;
     font-size: 1.2em;
-    color: var(--text-color);
+    /* color: #333; */
 }
 
 .cart-quantity {
@@ -207,7 +241,7 @@ a:hover {
 }
 
 .cart-item-title {
-    color: var(--text-color);
+    /* color: #333; */
     margin-left: .5em;
     font-size: 1.2em;
 }
@@ -220,7 +254,7 @@ a:hover {
 
 .btn-danger {
     color: white;
-    background-color: red;
+    background-color: var(--text-color);
     border: none;
     border-radius: .3em;
 }
@@ -273,8 +307,29 @@ a:hover {
     font-size: 1.75em;
 }
 
-@media screen and (max-width: 968px) {
-    .sectionContainer {
-      background-image: none;
+@media screen and (max-width: 1268px) {
+    .landingContainer > h1 {
+        /* font-family: var(--theme-font); */
+        font-size: 6.5rem;
     }
+    .landingContainer > h3{
+        /* font-weight: bolder; */
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 968px) {
+    .landingContainer{
+        height: 25vh;
+        margin-top: 20%;
+    }
+    .landingContainer > h1 {
+        /* font-family: var(--theme-font); */
+        font-size: 4.5rem;
+    }
+    .landingContainer > h3{
+        /* font-weight: bolder; */
+        font-size: 2.5rem;
+    }
+    
 }

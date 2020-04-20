@@ -24,6 +24,12 @@ router.get('/order', function(req, res) {
   })
 })
 
+router.get('/about', (req, res) => {
+  res.sendFile('views/about.html', {
+      root: __dirname + '/../'
+  });
+})
+
 router.post('/purchase', function(req, res) {
   fs.readFile('items.json', function(error, data) {
       if (error) {
